@@ -27,9 +27,15 @@
   "homepage": "https://github.com/KrysLasam/JewelsbyKrys#readme",
   "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "firebase-admin": "^11.2.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.2.1"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
   }
+
 }

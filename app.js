@@ -13,14 +13,14 @@ if (process.env.GOOGLE_CREDENTIALS != null) {
     serviceAccount = JSON.parse(process.env.GOOGLE_CREDENTIALS)
 }
 else {
-    // serviceAccount = require("./itelective2-android2021-firebase-adminsdk-qn6kq-c13f911412.json");
+    serviceAccount = require("./jewelsbykrys-firebase-adminsdk-w6mdp-b001b4fd21.json");
 }
 fs.initializeApp({
     credential: fs.credential.cert(serviceAccount)
 });
 
 const db = fs.firestore();
-const ingColl = db.collection('ingredients');
+const ingColl = db.collection('items');
 
 app.get('/', async function (req, res) {
     const items = await ingColl.get();
