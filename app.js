@@ -52,3 +52,5 @@ app.get('/item/:itemid', async function (req, res) {
     }
     res.render('pages/item', data);
 });
+
+app.use(express.static(__dirname + '/public'));
