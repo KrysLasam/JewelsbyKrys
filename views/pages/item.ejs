@@ -11,7 +11,7 @@
             <div class="col s12 m7">
                 <div class="card">
                     <div class="card-image">
-                        <img src="<%= itemData['imgurl'] %>">
+                        <img src="<%= itemData['photoUrl'] %>" height="300px">
                         <span class="card-title">
                             <%= itemData['name'] %>
                         </span>
@@ -26,9 +26,9 @@
                 </div>
             </div>
         </div>
-
+        
         <%- include('../partials/footer'); %>
-            <%- include('../partials/script'); %>
+        <%- include('../partials/script'); %>
 </body>
 
 </html>
