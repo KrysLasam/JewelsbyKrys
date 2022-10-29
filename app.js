@@ -1,15 +1,11 @@
 var express = require('express');
 var app = express();
-app.use(express.static('assets'))
-
-console.log("1");
+app.use(express.static('assets'));
 
 const port = process.env.PORT || 3000;
 
 app.listen(port,);
 app.set('view engine', 'ejs');
-
-console.log("2");
 
 var fs = require("firebase-admin");
 let serviceAccount;
@@ -23,8 +19,6 @@ fs.initializeApp({
     credential: fs.credential.cert(serviceAccount)
 });
 
-console.log("3");
-
 const db = fs.firestore();
 const ingColl = db.collection('items');
 
@@ -36,8 +30,6 @@ app.get('/', async function (req, res) {
     }
     res.render('pages/index', data);
 });
-
-console.log("4");
 
 app.get('/item/:itemid', async function (req, res) {
     try {
@@ -60,7 +52,5 @@ app.get('/item/:itemid', async function (req, res) {
     }
     res.render('pages/item', data);
 });
-
-console.log("5");
 
 app.use(express.static(__dirname + '/public'));
