@@ -36,16 +36,67 @@
 
 <script>
   function myCreateFunction() {
-  var table = document.getElementById("myTable");
-  var row = table.insertRow(0);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";
+    var table =  document.getElementById("myTable");
+      var qty = document.getElementById("AddBox").value*1;
+      var totalQty = document.getElementById("totalQty"); 
+      var sum = 0;
+      var row = table.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell2.innerHTML = qty;
+      cell1.innerHTML = new Date();
+          for(var i = 1; i < table.rows.length; i++)
+          {
+          sum = sum + parseInt(table.rows[i].cells[1].innerHTML); 
+          }
+      document.getElementById("totalQty").innerHTML="Total Quantity: " + sum;
   }
 
+  
   function myDeleteFunction() {
     document.getElementById("myTable").deleteRow(0);
   }
+
+  var table = document.getElementById("table"),rIndex;        
+    for(var i = 1; i < table.rows.length; i++){
+        table.rows[i].onclick = function(){
+            rIndex = this.rowIndex;
+            console.log(rIndex);
+    
+            document.getElementById("fname").value = this.cells[1].innerHTML;
+            document.getElementById("mNumber").value = this.cells[4].innerHTML;
+        };
+    }
+                    
+    // edit the row
+    function editRow(){
+        table.rows[rIndex].cells[1].innerHTML = document.getElementById("fname").value;
+        table.rows[rIndex].cells[4].innerHTML = document.getElementById("mNumber").value;
+    }
+    
+    // Data Update Table Here
+    function editTableDisplay(){
+        document.querySelector('.editTable').setAttribute('style', 'display: block;')
+    }
+  // var x = 0;
+  // document.getElementById('demoInput').innerHTML = x;
+  // function button1() {
+  //   document.getElementById('demoInput').innerHTML = ++x;
+  // }
+  // function button2() {
+  //   if(x <= 0 ){
+  //     ;
+  //   return false ;
+  //   }
+  //   document.getElementById('demoInput').innerHTML = --x;
+  // }
+
+   function increment() {
+      document.getElementById('demoInput').stepUp();
+   }
+   function decrement() {
+      document.getElementById('demoInput').stepDown();
+   }
+
 </script>
 </body></html>

@@ -5,7 +5,7 @@
     <%- include('../partials/head'); %>
 </head>
 
-<body class="text brown lighten-5">
+<body class="text brown lighten-5 font-sans">
     <%- include('../partials/header'); %>
 
     <div class="ui container">
@@ -21,23 +21,36 @@
                 </div> -->
                 <div class="ui horizontal card">
                     <div class="content">
-                        <div class="header"><%= itemData['name'] %></div>
-                        <div class="meta">
-                            <span class="category">₱ <%= parseFloat(itemData['price']).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,' ) %></span>
+                        <div class="header">
+                            <span class="ui large text"><%= itemData['name'] %></span> 
                         </div>
+                        
                         <div class="description">
                             <p><%= itemData['description'] %></p>
                         </div><br>
+                        <div class="meta">
+                            <span class="category ui large text">
+                                ₱ <%= parseFloat(itemData['price']).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,' ) %>
+                            </span>
+                        </div><br>
                         <div class="extra">
                             <div class="ui buttons">
-                                <button class="ui negative button">-</button>
+                                <button class="ui negative button" onclick="decrement()">-</button>
                                 <div class="or"></div>
-                                <button class="ui positive button">+</button>
+                                <button class="ui positive button" onclick="increment()">+</button>
                             </div><br><br>
-                            <div><input type="text" value=0></div>
+                            <div>
+                                <input id="demoInput" type="number" min=0 value=0>
+                            </div><br>
                             <div class="ui buttons">
-                                <button class="ui positive button"><i class="shop icon"></i>Add Sales Count</button>
+                                <button class="ui button" onclick="myCreateFunction()">
+                                    <i class="shop icon"></i>Add Sales Count
+                                </button><br><br>
+                                <button class="ui button brown darken-2" onclick="myDeleteFunction()">
+                                    Delete
+                                </button>
                             </div>
+                  
                         </div>
                     </div>
                 </div>
@@ -65,13 +78,20 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <% var totalQty = 0; %>
+                        <% var hist_array = 0; %>
+                        <% for (var index=0;  index < hist_array.length; index++){ %>
                     </tr>
                     </tfoot>
+                    <td style="text-align:left"><%= hist_array[index].dateCreated.toDate();%></td>
+                    <td style="text-align:justify"><%= (hist_array[index].quantity);%></td>              
+                    </tr>
+                    </tbody>  
+                    <p><% totalQty += (hist_array[index].quantity);%> </p>
+                    <% } %> 
                 </table>
-            </div>
+                <p id="totalQty">Total Quantity Count: <%= totalQty %> pcs </p> 
+            </div>  
         </div>
     </div>
 
