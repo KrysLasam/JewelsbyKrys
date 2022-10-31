@@ -16,41 +16,40 @@
                 </div>
             </div>
             <div class="ui segment">
-                <!-- <div class="image">
-                    <img src="" class="ui medium image">
-                </div> -->
                 <div class="ui horizontal card">
-                    <div class="content">
+                    <div class="content"><br><br>
                         <div class="header">
                             <span class="ui large text"><%= itemData['name'] %></span> 
                         </div>
                         
                         <div class="description">
-                            <p><%= itemData['description'] %></p>
+                            <span class="ui medium text"><%= itemData['description'] %></span>
                         </div><br>
                         <div class="meta">
-                            <span class="category ui large text">
+                            <span class="ui big text">
                                 ₱ <%= parseFloat(itemData['price']).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,' ) %>
                             </span>
-                        </div><br>
+                        </div><br><br><br>
                         <div class="extra">
+                            
                             <div class="ui buttons">
-                                <button class="ui negative button" onclick="decrement()">-</button>
-                                <div class="or"></div>
-                                <button class="ui positive button" onclick="increment()">+</button>
+                               
+                                <button class="ui button #d7ccc8 brown lighten-2" onclick="decrement()">-</button>
+                                <div>
+                                    <input id="demoInput" type="number" min=1 value=1 max=20 class="center-align">
+                                </div>
+                                <button class="ui button brown darken-1" onclick="increment()">+</button>
+                             
                             </div><br><br>
-                            <div>
-                                <input id="demoInput" type="number" min=0 value=0>
-                            </div><br>
+                          
                             <div class="ui buttons">
-                                <button class="ui button" onclick="myCreateFunction()">
-                                    <i class="shop icon"></i>Add Sales Count
-                                </button><br><br>
-                                <button class="ui button brown darken-2" onclick="myDeleteFunction()">
+                                <button class="ui button #d7ccc8 brown lighten-2" onclick="myDeleteFunction()">
                                     Delete
                                 </button>
+                                <button class="ui button brown darken-1" onclick="myCreateFunction()">
+                                    <i class="cart plus icon"></i>Add Sales Count
+                                </button><br><br>
                             </div>
-                  
                         </div>
                     </div>
                 </div>
@@ -64,33 +63,22 @@
                         <th>Quantity</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id = "tbody">
                     <tr>
-                        <td>James</td>
-                        <td>24</td>
-                        <td>Engineer</td>
+                        <td>1</td>
+                        <td>10/31/2022, 6:25:29 AM</td>
+                        <td>1</td>
                     </tr>
                     <tr>
-                        <td>Jill</td>
-                        <td>26</td>
-                        <td>Engineer</td>
+                        <td>2</td>
+                        <td>10/31/2022, 6:27:04 AM</td>
+                        <td>1</td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <% var totalQty = 0; %>
-                        <% var hist_array = 0; %>
-                        <% for (var index=0;  index < hist_array.length; index++){ %>
-                    </tr>
-                    </tfoot>
-                    <td style="text-align:left"><%= hist_array[index].dateCreated.toDate();%></td>
-                    <td style="text-align:justify"><%= (hist_array[index].quantity);%></td>              
-                    </tr>
-                    </tbody>  
-                    <p><% totalQty += (hist_array[index].quantity);%> </p>
-                    <% } %> 
                 </table>
-                <p id="totalQty">Total Quantity Count: <%= totalQty %> pcs </p> 
+                <div>
+                    <i class="shopping cart icon"></i><span class="ui medium text" id = "tq"></span>
+                </div>
             </div>  
         </div>
     </div>
@@ -106,5 +94,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.0/semantic.min.js"></script>
+
 </body>
 </html>
