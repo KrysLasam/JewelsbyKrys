@@ -45,7 +45,7 @@ app.get('/item/:itemid', async function (req, res) {
     } else {
         console.log('Document data:', doc.data());
     }
-    // const items = await ingColl.get();
+    
     let data = {
         url: req.url,
         itemData: doc.data(),
